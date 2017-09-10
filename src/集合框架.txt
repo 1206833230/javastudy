@@ -1,0 +1,28 @@
+集合类的由来：
+  对象用于封装特有的数据，对象多了需要存储。若果对象的个数不确定，就需要容器进行储存。
+  
+  集合的特点;
+  1.用于储存对象的容器。
+  2.集合的昌都市可变的。
+  3.集合不可以储存基本数据类型。
+  
+ 集合容器因为内部的数据结构不同，有多种结具体容器。
+ 不断地向上抽取，就形成集合框架。
+ 集合的顶层colection的常见方法：
+ 1.添加：
+   boolean add(Object obj);
+   boolean addAll(Collection coll)
+ 2.删除：
+   boolean remove(object obj)
+   boolean removeAll(collection coll)
+   void clear();
+ 3.判断：
+   Boolean contains(object obj)
+   booealn containsAll(collection coll);
+   boolean isEampy();判断集合中是否有元素。
+ 4.获取：
+   int size（）；
+   Iterator iterator();//取出元素的方法，迭代器。
+ 5.其他
+   booleanretainAll(Collection coll);去交集
+   object to Array();将集合转换成数组。
