@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @author 彭际群
+ * @author JunLi
  * 本程序用于频繁集的挖掘
  * 首先用List<List<String>>类型的record将矩阵形式的数据读入内存；
  * 

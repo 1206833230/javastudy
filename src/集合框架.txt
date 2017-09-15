@@ -23,6 +23,63 @@
  4.获取：
    int size（）；
    Iterator iterator();//取出元素的方法，迭代器。
+       该对象必须依赖具体的容器，因为每个容器的数据结构不同。
+       所以该迭代器对象实在容器中进行内部实现的。
+       对于只用这而言具体的实现是不重要的，只要通过的容器获取到高实现的迭代器的对象即可。
+   也就是iterator的方法。
+   
+   Iterator接口就是对所有collection容器进行元素取出的公共接口。
  5.其他
    booleanretainAll(Collection coll);去交集
    object to Array();将集合转换成数组。
+   
+   Collection：
+   1--List：有序的（存入和取出的顺序是一致的），元素都有索引（角标），元素可以重复。
+   1--set：元素不能重复。
+   
+   list特有常见的方法：有一个共同的特点就是都可以操作角标
+   1.添加
+   void add(index,element)
+   void add(index,collection)
+   
+   2.删除
+   boject remove(index)
+   
+   3. 修改
+   object set（index，element）
+   
+   4.获取
+   Object get(index)
+   int indexOf(Object)
+   int lastIndexOf(object);
+   list subList(start,end);
+   
+   list可以完成对元素的增删改查。
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
