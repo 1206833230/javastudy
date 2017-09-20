@@ -18,7 +18,7 @@
    void clear();
  3.判断：
    Boolean contains(object obj)
-   booealn containsAll(collection coll);
+   boolean containsAll(collection coll);
    boolean isEampy();判断集合中是否有元素。
  4.获取：
    int size（）；
@@ -43,7 +43,7 @@
    void add(index,collection)
    
    2.删除
-   boject remove(index)
+   object remove(index)
    
    3. 修改
    object set（index，element）
@@ -55,6 +55,30 @@
    list subList(start,end);
    
    list可以完成对元素的增删改查。
+   1--vector 数组数据结构，是同步的。线程安全的。增删改查速度都非常慢。
+   1--ArrayList 内部是数组数据结构，他是不同步的。效力低，替代了vevtor。查询速度非常快。牵一发而动全身。
+   1--LinkList 链表数据结构，是不同步的。增删元素速度非常快。
+   
+   linkedList:
+   addFirst();
+   addLast();
+   
+   getFirst();//获取但不移除，如果链表为空，抛出NoSuchElementException
+   getLast();//获取但不移除，如果量表为空，返回null.
+   
+   removeFirst();//获取但不移除，如果链表为空，抛出NoSuchElementException
+   removeLast();
+   jdk1.6
+   pollFirst();//获取但不移除，如果量表为空，返回null.
+   pollLast();
+   
+ ------------------------------------------
+ set：元素不可以重复，是无序的  
+ set接口中的方法和collection的方法一直。
+ 1--HashSet：内部数据结构是哈希表，是不同步的。
+   
+   
+   
    
    
    
