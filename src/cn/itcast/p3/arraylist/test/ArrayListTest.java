@@ -23,7 +23,7 @@ public class ArrayListTest {
 		while(it.hasNext()) {
 //			System.out.println( ((Person) it.next()).getName()+"::"+((Person) it.next()).getAge());
 			Person p = (Person) it.next();
-			System.out.println(p.getName()+"--"+p.getAge());
+		System.out.println(p.getName()+"--"+p.getAge());
         }
 		al.add(5);//al.add(new Integer(5);
 

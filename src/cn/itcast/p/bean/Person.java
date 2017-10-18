@@ -1,6 +1,6 @@
 package cn.itcast.p.bean;
 
-public class Person extends Object{
+public class Person /*extends Object*/ implements Comparable {
 	private String name;
 	private int age;
 	public Person() {
@@ -43,6 +43,26 @@ public class Person extends Object{
 	}
 	public  String toString() {
 		return name + ":" + age;
+	}
+
+	@Override
+	public int compareTo(Object o) {
+		// TODO 自动生成的方法存根
+		Person p = (Person)o;
+		//按照年龄进行排序，之后按姓名排
+//		int temp = this.age-p.age;
+//		return temp==0?this.name.compareTo(p.name):temp;
+		
+		int temp = this.name.compareTo(p.name);
+		return temp==0?this.age-p.age:temp;
+//		if(this.age>p.age)
+//			return 1;
+//		if(this.age<p.age)
+//			return -1;
+//		if(this.age==p.age) {
+//			return this.name.compareTo(p.name);
+//		}
+		
 	}
 
 }

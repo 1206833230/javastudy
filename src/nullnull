@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?><pnml>
+<net id="Net-One" type="P/T net">
+<place id="Ps">
+<graphics>
+<position x="45.0" y="200.0"/>
+</graphics>
+</place>
+<place id="Pe0">
+<graphics>
+<position x="465.0" y="200.0"/>
+</graphics>
+</place>
+<place id="p__6">
+<graphics>
+<position x="185.0" y="200.0"/>
+</graphics>
+</place>
+<place id="p__8">
+<graphics>
+<position x="325.0" y="200.0"/>
+</graphics>
+</place>
+<transition id="Ts">
+<graphics>
+<position x="115.0" y="200.0"/>
+</graphics>
+</transition>
+<transition id="Te0">
+<graphics>
+<position x="395.0" y="200.0"/>
+</graphics>
+</transition>
+<transition id="t__3_CT">
+<graphics>
+<position x="255.0" y="200.0"/>
+</graphics>
+</transition>
+<arc id="Ps to Ts" source="Ps" target="Ts"/>
+<arc id="Te0 to Pe0" source="Te0" target="Pe0"/>
+<arc id="Ts to p__6" source="Ts" target="p__6"/>
+<arc id="p__6 to t__3_CT" source="p__6" target="t__3_CT"/>
+<arc id="t__3_CT to p__8" source="t__3_CT" target="p__8"/>
+<arc id="p__8 to Te0" source="p__8" target="Te0"/>
+</net>
+</pnml>
