@@ -1,0 +1,182 @@
+字符流：
+Writer Reader
+FileReader
+FileWriter
+BufferedReader
+BufferedWriter
+-------------------------
+
+转换流：
+InputStreamReader：字节到字符的转换桥梁。解码。
+
+OutputStreamWriter: 字符到字节的转换桥梁。编码。
+
+流的操作规律：
+之所以要弄清这个规律，是因为流太多，开发时不知道要用那个？
+
+想要知道开发时用到哪些对象，只要通过四个明确即可。
+
+1.明确源和目的（汇）
+    源： InputStream Reader
+    汇：OutputStream Writer
+2.明确数据是否是纯文本数据。
+     源：是纯文本：Reader
+            否：IntputStream 
+     目的：是纯文本Writer
+       否：OutputStream
+       到这里，就可以明确需求中具体要是要用那个体系.
+       
+3.明确具体的设备。
+   源设备：
+   硬盘：File
+   键盘：Sytem.in
+   内存：数组
+   网路：Socket流
+
+ 目的设备;
+   硬盘：
+   控制台：System.out
+   内存：数组
+   网络：Socket流
+   
+4.是否需要其他功能。
+   1.是否需要高效（缓冲区）；
+       是：就加上buffer。
+       
+
+
+需求1：复制一个文本文件
+1.明确源和目的
+源:InputStream Reader
+目的：OutputStream Writer
+2.是否是纯文本
+是！
+源：Reader
+目的 Writer
+3.明确设备：
+源：
+   硬盘：file
+目的：
+   硬盘：file
+   FileReader fr = new FileReader("a.txt");
+   FileWriter fw = new FileWriter("b.xt");
+4.需要额外功能吗？
+需要：需要高效
+   BufferedReader bufr = new BufferedReader(new FileRead("a.txt"));
+   BufferedWriter bufw = new BufferedWriter(new FileWriter("b.txt));
+
+需求2：读取键盘录入信息，并写入到一个文件中。
+1.明确源和目的
+源:InputStream Reader
+目的：OutputStream Writer
+2.是否是纯文本
+是！
+源：Reader
+目的 Writer
+3.明确设备
+源;
+键盘：System.in
+
+硬盘:File
+
+InputStream in = System.in;
+FileWriter fw = new FileWriter("b.txt");
+这样做可以完成，但是麻烦。将读取的字节数据转换成字符串。再由字符流操作。
+4.需要其他功能吗？
+需要：转换。将字节流转成字节流。因为明确的源是Reader，这样操作文本数据跟便捷。
+         所以字节————>字符InputStreamReader
+        InputStreamReader isr = new InputStreamReader(System.in);
+        FileWriter fw = new FileWriter("b.txt");
+       
+    还需要功能吗?
+    需要：想要高效。
+    BuffereReader bufr = new BufferedReader(new InputStreamReader("System.in");
+    BufferedWriter bufw = new BuferedWriter(new FileWriter("b.txt");
+    
+    
+需求3：将一个文本文件数据显示在控制台
+1.明确源和目的
+源:InputStream Reader
+目的：OutputStream Writer
+2.是否是纯文本
+是！
+源：Reader
+目的 Writer
+3.明确设备：
+源：
+   硬盘：file
+目的：
+  控制台：System.out
+  
+  FileReader fr = new FileReader("a.txt")
+  OutputStream out = System.out;
+  
+  4.需要额外功能吗?
+ 需要：转换
+ FileReader fr = new FileReader("a.txt.")
+  OutputStreamWriter bufr = new new OutputStreamWriter(System.out);
+  
+  需要：高效
+  FileReader fr = new FileReader("a.txt.")
+  OutputStreamWriter bufr = new BufferedReader(new OutputStreamWriter(System.out));
+  
+
+
+
+
+需求4：读取键盘录入数据，显示在控台上。
+  1.明确源和目的
+源:InputStream Reader
+目的：OutputStream Writer
+2.是否是纯文本
+是！
+源：Reader
+目的 Writer
+3.明确设备：
+源：
+   键盘：System.in
+目的：
+  控制台：System.out
+  
+  IntputStream in = System.in;
+  OutputStream out = System.out;
+  
+  字符读取
+  4.明确额外功能？
+  需要转换：因为都是字节流，但是操作的却是文本数据。
+  所以使用字符流操作起来更方便。
+  InputStreamReader isr = new IntputStreamReader(System.in);
+  OutputStreamWriter osw = new OutPutStreamWriter(System.out);
+  
+  为了高效。
+  BuffereReader bufr = new BuffereReader(new IntputStreamReader(System.in));
+  BuffereWriter bufw = new BuffereWriter(new OutPutStreamWriter(System.out));
+  
+  5.将一个中文字符串数据按照指定的编码表写入到一个文本文件中。
+  1.目的。OutputStream Writer
+  2.是纯文本。Writer
+  3.设备： 硬盘File
+  FileWtriter fw = new FileWriter("a.txt");
+  fw.writer("您好！");
+  
+  注意：既然需求中已经明确指定编码的动作。
+  那就不能使用FileWriter，因为FileWriter内部是使用默认的本地编码表。
+  只能使用期父类。OutputStreamWriter。
+ OutputStreamWriter接受一个字节输出流对象，既然是操作文件，那么那么该对象应该是FileOutputStream。
+ OutputStreamWriter osw = new OutputStreamWriter(new FileOutputStream("a.txt"),charsetName);
+ 
+ 需要高效吗？
+ BufferedWriter bufw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("a.txt"),carsetName);
+  
+ 什么时候使用转换流呢？
+ 1.源或者目的对应的设备是字节流，但是操作的却是文本数据，可以使用转换流作为桥梁。
+  提高文本操作的便捷。
+  2.一旦操作文本涉及到具体指定的编码表，必须使用转换流。
+  
+  
+  
+  
+  
+  
+  
+  
